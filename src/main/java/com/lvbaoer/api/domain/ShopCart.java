@@ -1,6 +1,7 @@
 package com.lvbaoer.api.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 购物车
@@ -9,63 +10,50 @@ import java.io.Serializable;
  *
  */
 public class ShopCart implements Serializable {
-	private static final long serialVersionUID = -7146231161789198618L;
-	private int id;
-	private String userId;
-	private int standardId;
-	private int goodsId;
-	private int amount;
-	private OrderType type;
+    private static final long serialVersionUID = -7146231161789198618L;
+    private int id;
+    private String userId;
+    private int standardId;
+    private int amount;
+    private Date createTime;
 
-	public enum OrderType {
-		SERVICE, GOODS
-	}
+    public final Date getCreateTime() {
+        return createTime;
+    }
 
-	public OrderType getType() {
-		return type;
-	}
+    public final void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public void setType(OrderType type) {
-		this.type = type;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getGoodsId() {
-		return goodsId;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setGoodsId(int goodsId) {
-		this.goodsId = goodsId;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getStandardId() {
+        return standardId;
+    }
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setStandardId(int standardId) {
+        this.standardId = standardId;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public int getAmount() {
+        return amount;
+    }
 
-	public int getStandardId() {
-		return standardId;
-	}
-
-	public void setStandardId(int standardId) {
-		this.standardId = standardId;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }
