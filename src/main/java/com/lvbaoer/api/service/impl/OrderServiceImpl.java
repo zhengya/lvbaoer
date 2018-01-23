@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private GoodsMapper goodsMapper;
 
-	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Override
 	public int insertOrderServe(OrderServeParam param, String userId) throws ParseException {
