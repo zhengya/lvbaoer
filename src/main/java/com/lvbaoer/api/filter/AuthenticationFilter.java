@@ -23,7 +23,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest httpRequest, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
 		// 设置禁止缓存
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		response.setCharacterEncoding("utf8");
 		final Cookie cookie = WebUtils.getCookie(httpRequest, "userId");
 		if(cookie==null) {

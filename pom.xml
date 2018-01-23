@@ -159,18 +159,6 @@
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources/profile/${prop.dir.name}</directory>
-				<targetPath>./</targetPath>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>profile/**</exclude>
-				</excludes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -185,29 +173,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<prop.dir.name>dev</prop.dir.name>
-			</properties>
-		</profile>
-		<profile>
-			<id>test</id>
-			<properties>
-				<prop.dir.name>test</prop.dir.name>
-			</properties>
-		</profile>
-		<profile>
-			<id>prop</id>
-			<properties>
-				<prop.dir.name>prop</prop.dir.name>
-			</properties>
-		</profile>
-	</profiles>
-
-
 </project>
