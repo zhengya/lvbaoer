@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>%d{HH:mm:ss} %-5level %logger{35} - %msg%n
-            </Pattern>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d %p (%file:%line\)- %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="File"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>./logs/log.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%m%n</pattern>
         </encoder>
     </appender>
-    <logger name="java.sql" level="DEBUG" >
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <logger name="com.mpen.api.mapper" level="INFO"/>
-    <root>
-        <level value="ERROR" />
-        <appender-ref ref="STDOUT" />
-    </root>
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" />
+	</root>
 </configuration>
+
