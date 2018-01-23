@@ -4,6 +4,7 @@
 package com.lvbaoer.api.domain;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 
 public class HealthTitle implements Serializable {
@@ -18,7 +19,7 @@ public class HealthTitle implements Serializable {
 	private Type type;
 	private int browerNum;
 	private int commentNum;
-	private Date createTime;
+	private Instant createTime;
 	// 0:否 ;1:是
 	private int isBanner;
 
@@ -90,11 +91,11 @@ public class HealthTitle implements Serializable {
 		this.commentNum = commentNum;
 	}
 
-	public final Date getCreateTime() {
+	public final Instant getCreateTime() {
 		return createTime;
 	}
 
-	public final void setCreateTime(Date createTime) {
+	public final void setCreateTime(Instant createTime) {
 		this.createTime = createTime;
 	}
 
