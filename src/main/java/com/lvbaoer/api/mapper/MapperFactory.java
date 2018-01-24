@@ -107,6 +107,11 @@ public class MapperFactory implements TransactionManagementConfigurer {
         return getMapper(HealthCenterInfoMapper.class);
     }
 
+    @Bean
+    public MapperFactoryBean<BannerMapper> bannerMapper() throws Exception {
+        return getMapper(BannerMapper.class);
+    }
+
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new DataSourceTransactionManager(dataSource);
