@@ -68,10 +68,14 @@ public class GoodsServiceImpl implements GoodsService {
         for (GoodsType goodsType : fatherTypes) {
             final List<GoodsType> childTypes = goodsTypeMapper.getChildTypes(goodsType.getId());
             if (childTypes != null && childTypes.size() > 0) {
-                final GoodsTypeTemp<GoodsType> temp = new GoodsTypeTemp<>();
-                temp.type = goodsType;
-                temp.child = childTypes;
-                result.types.add(temp);
+                if (goodsType.getId() == 2) {
+                    result.banner = childTypes;
+                } else {
+                    final GoodsTypeTemp<GoodsType> temp = new GoodsTypeTemp<>();
+                    temp.type = goodsType;
+                    temp.child = childTypes;
+                    result.types.add(temp);
+                }
             } else {
                 final List<Goods> goods = goodsMapper.getByTypeId(0, 4, goodsType.getId());
                 if (goods != null && goods.size() > 0) {

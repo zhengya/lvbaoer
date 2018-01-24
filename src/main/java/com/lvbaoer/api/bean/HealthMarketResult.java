@@ -8,6 +8,7 @@ import com.lvbaoer.api.domain.GoodsType;
 
 public final class HealthMarketResult {
     public List<GoodsTypeTemp<GoodsType>> types;
+    public List<GoodsType> banner;
     public List<GoodsTypeTemp<Goods>> goods;
 
     public HealthMarketResult() {
