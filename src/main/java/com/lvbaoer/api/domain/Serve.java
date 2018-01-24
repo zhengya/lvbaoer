@@ -4,80 +4,89 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Serve implements Serializable {
-	private static final long serialVersionUID = 6273990512558627364L;
-	private int id;
-	private String name;
-	// 原始价格
-	private float price;
-	// 当前价格
-	private float localPrice;
-	private String images;
-	private String headImage;
-	private String content;
-	private Date createTime;
+    private static final long serialVersionUID = 6273990512558627364L;
+    private int id;
+    private String name;
+    // 原始价格
+    private float price;
+    // 当前价格
+    private float localPrice;
+    private String images;
+    private String headImage;
+    private String content;
+    private Date createTime;
+    private int sales;
 
-	public String getImages() {
-		return images;
-	}
+    public final int getSales() {
+        return sales;
+    }
 
-	public void setImages(String images) {
-		this.images = images;
-	}
+    public final void setSales(int sales) {
+        this.sales = sales;
+    }
 
-	public String getHeadImage() {
-		return headImage;
-	}
+    public String getImages() {
+        return images;
+    }
 
-	public void setHeadImage(String headImage) {
-		this.headImage = headImage;
-	}
+    public void setImages(String images) {
+        this.images = images;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getHeadImage() {
+        return headImage;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public float getPrice() {
-		return price;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setPrice(float price) {
-		this.price = price;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public float getLocalPrice() {
-		return localPrice;
-	}
+    public float getPrice() {
+        return price;
+    }
 
-	public void setLocalPrice(float localPrice) {
-		this.localPrice = localPrice;
-	}
+    public void setPrice(float price) {
+        this.price = price;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public float getLocalPrice() {
+        return localPrice;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public void setLocalPrice(float localPrice) {
+        this.localPrice = localPrice;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
 }

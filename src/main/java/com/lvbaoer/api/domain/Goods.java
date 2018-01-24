@@ -20,8 +20,17 @@ public class Goods implements Serializable {
 	private String images;
 	private String content;
 	private Date createTime;
+	private int sales;
 
-	public float getLocalPrice() {
+	public final int getSales() {
+        return sales;
+    }
+
+    public final void setSales(int sales) {
+        this.sales = sales;
+    }
+
+    public float getLocalPrice() {
 		return localPrice;
 	}
 

@@ -30,8 +30,19 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
+    @GetMapping("")
+    public Callable<NetworkResult<Object>> getGoods(final Page<Goods> page, final HttpServletRequest request,
+        final HttpServletResponse response) {
+        return new Callable<NetworkResult<Object>>() {
+            @Override
+            public NetworkResult<Object> call() throws Exception {
+                return RsHelper.success(goodsService.getGoods(page));
+            }
+        };
+    }
+
     @GetMapping("/{id}")
-    public Callable<NetworkResult<Object>> getGoods(@PathVariable final int id, final HttpServletRequest request,
+    public Callable<NetworkResult<Object>> getGoodsById(@PathVariable final int id, final HttpServletRequest request,
         final HttpServletResponse response) {
         return new Callable<NetworkResult<Object>>() {
             @Override

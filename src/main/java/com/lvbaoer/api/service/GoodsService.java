@@ -24,4 +24,6 @@ public interface GoodsService {
     HealthMarketResult getGoodsTypes();
 
     Page<Goods> getGoodsByTypeId(Page<Goods> page, int typeId);
+
+    Page<Goods> getGoods(Page<Goods> page);
 }

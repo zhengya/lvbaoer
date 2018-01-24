@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lvbaoer.api.bean.CommentResult;
 import com.lvbaoer.api.common.Page;
@@ -34,6 +35,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int insert(Comment comment) {
 		commentMapper.insert(comment);
 		final HealthTitle title = healthTitleService.getById(comment.getTitleId());

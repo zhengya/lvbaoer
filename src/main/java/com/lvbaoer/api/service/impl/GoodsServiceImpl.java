@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lvbaoer.api.bean.GoodsResult;
 import com.lvbaoer.api.bean.HealthMarketResult;
@@ -42,6 +43,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int addShopCart(ShopCart cart) {
         cart.setCreateTime(new Date());
         shopCartMapper.insert(cart);
@@ -49,6 +51,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteCart(int id) {
         shopCartMapper.delete(id);
     }
@@ -82,8 +85,16 @@ public class GoodsServiceImpl implements GoodsService {
         return result;
     }
 
+    @Override
     public Page<Goods> getGoodsByTypeId(Page<Goods> page, int typeId) {
         final List<Goods> goods = goodsMapper.getByTypeId(page.getIndex(), page.getPageSize(), typeId);
+        page.setItems(goods);
+        return page;
+    }
+
+    @Override
+    public Page<Goods> getGoods(Page<Goods> page) {
+        final List<Goods> goods = goodsMapper.getGoods(page.getIndex(), page.getPageSize());
         page.setItems(goods);
         return page;
     }

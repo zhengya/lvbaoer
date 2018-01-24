@@ -3,20 +3,16 @@
  */
 package com.lvbaoer.api.service.impl;
 
-import java.time.Instant;
-import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.lvbaoer.api.common.WxConfig;
 import com.lvbaoer.api.domain.User;
 import com.lvbaoer.api.mapper.UserMapper;
 import com.lvbaoer.api.service.UserService;
-import com.lvbaoer.api.util.CommonUtils;
 
 @Component
 public class UserServiceImpl implements UserService {
@@ -30,6 +26,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean login(String code, HttpServletResponse response) {
         /*final Map<String, String> map = CommonUtils.get(WxConfig.getUserTokenUrl(code));
         final String openId = map.get("openid");

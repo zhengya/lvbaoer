@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lvbaoer.api.bean.AddressParam;
 import com.lvbaoer.api.domain.ReciveAddress;
@@ -19,6 +20,7 @@ public class ReciveAddressServiceImpl implements ReciveAddressService {
 	private ReciveAddressMapper reciveAddressMapper;
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int save(AddressParam addr, String userId) {
 		final ReciveAddress recive = new ReciveAddress(addr, userId);
 		reciveAddressMapper.save(recive);
@@ -31,11 +33,13 @@ public class ReciveAddressServiceImpl implements ReciveAddressService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void update(ReciveAddress addr) {
 		reciveAddressMapper.update(addr);
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void delete(int id) {
 		reciveAddressMapper.delete(id);
 	}
