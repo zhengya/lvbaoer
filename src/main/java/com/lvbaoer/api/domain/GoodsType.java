@@ -6,19 +6,18 @@ import java.util.Date;
 public class GoodsType implements Serializable {
     private static final long serialVersionUID = -1585400036995044117L;
     private int id;
+    private int goodsTypeId;
     private String name;
-    private String url;
     private String image;
     private int rank;
     private Date createTime;
-    private int isHome;
 
-    public final int getIsHome() {
-        return isHome;
+    public final int getGoodsTypeId() {
+        return goodsTypeId;
     }
 
-    public final void setIsHome(int isHome) {
-        this.isHome = isHome;
+    public final void setGoodsTypeId(int goodsTypeId) {
+        this.goodsTypeId = goodsTypeId;
     }
 
     public final int getRank() {
@@ -51,14 +50,6 @@ public class GoodsType implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public String getImage() {

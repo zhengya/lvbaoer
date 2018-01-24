@@ -6,6 +6,7 @@ package com.lvbaoer.api.service;
 import java.util.List;
 
 import com.lvbaoer.api.bean.GoodsResult;
+import com.lvbaoer.api.bean.HealthMarketResult;
 import com.lvbaoer.api.domain.GoodsType;
 import com.lvbaoer.api.domain.ShopCart;
 
@@ -17,4 +18,6 @@ public interface GoodsService {
     void deleteCart(int id);
 
     List<GoodsType> getHomeGoodsTypes();
+
+    HealthMarketResult getGoodsTypes();
 }

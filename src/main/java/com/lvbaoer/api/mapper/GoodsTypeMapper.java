@@ -12,10 +12,12 @@ import com.lvbaoer.api.domain.GoodsType;
 
 @Mapper
 public interface GoodsTypeMapper {
-    @Select("SELECT * FROM GOODS_TYPE ORDER BY INDEX")
-    List<GoodsType> get();
+    @Select("SELECT * FROM GOODS_TYPE WHERE GOODSTYPEID=0 AND ID!=1 ORDER BY RANK")
+    List<GoodsType> getFatherTypes();
 
-    @Select("SELECT * FROM GOODS_TYPE WHERE ISHOME=1 ORDER BY RANK DESC LIMIT 5")
-    List<GoodsType> getHome();
+    @Select("SELECT * FROM GOODS_TYPE WHERE GOODSTYPEID=1 ORDER BY RANK DESC LIMIT 5")
+    List<GoodsType> getHomeTypes();
 
+    @Select("SELECT * FROM GOODS_TYPE WHERE GOODSTYPEID=#{id} ORDER BY RANK DESC")
+    List<GoodsType> getChildTypes(int id);
 }
