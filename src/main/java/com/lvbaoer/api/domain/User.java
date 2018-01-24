@@ -1,20 +1,20 @@
 package com.lvbaoer.api.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
 
 public class User implements Serializable {
 	private static final long serialVersionUID = -1145056224186110285L;
 	private String id;
 	private String name;
 	private String image;
-	private Date createTime;
+	private Instant createTime;
 
-	public Date getCreateTime() {
+	public Instant getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(Instant createTime) {
 		this.createTime = createTime;
 	}
 

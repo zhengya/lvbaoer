@@ -11,9 +11,11 @@ import org.springframework.stereotype.Component;
 
 import com.lvbaoer.api.bean.GoodsResult;
 import com.lvbaoer.api.domain.Goods;
+import com.lvbaoer.api.domain.GoodsType;
 import com.lvbaoer.api.domain.ShopCart;
 import com.lvbaoer.api.domain.Standard;
 import com.lvbaoer.api.mapper.GoodsMapper;
+import com.lvbaoer.api.mapper.GoodsTypeMapper;
 import com.lvbaoer.api.mapper.ShopCartMapper;
 import com.lvbaoer.api.mapper.StandardMapper;
 import com.lvbaoer.api.service.GoodsService;
@@ -26,6 +28,8 @@ public class GoodsServiceImpl implements GoodsService {
     private StandardMapper standardMapper;
     @Autowired
     private ShopCartMapper shopCartMapper;
+    @Autowired
+    private GoodsTypeMapper goodsTypeMapper;
 
     @Override
     public GoodsResult getById(int id) {
@@ -44,6 +48,11 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public void deleteCart(int id) {
         shopCartMapper.delete(id);
+    }
+
+    @Override
+    public List<GoodsType> getHomeGoodsTypes() {
+        return goodsTypeMapper.getHome();
     }
 
 }

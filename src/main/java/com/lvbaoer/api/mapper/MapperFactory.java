@@ -97,6 +97,16 @@ public class MapperFactory implements TransactionManagementConfigurer {
         return getMapper(ShopCartMapper.class);
     }
 
+    @Bean
+    public MapperFactoryBean<GoodsTypeMapper> goodsTypeMapper() throws Exception {
+        return getMapper(GoodsTypeMapper.class);
+    }
+
+    @Bean
+    public MapperFactoryBean<HealthCenterInfoMapper> healthCenterInfoMapper() throws Exception {
+        return getMapper(HealthCenterInfoMapper.class);
+    }
+
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new DataSourceTransactionManager(dataSource);

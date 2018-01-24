@@ -63,4 +63,15 @@ public class GoodsController {
         };
     }
 
+    @GetMapping("/types")
+    public Callable<NetworkResult<Object>> getGoodsTypes(final HttpServletRequest request,
+        final HttpServletResponse response) {
+        return new Callable<NetworkResult<Object>>() {
+            @Override
+            public NetworkResult<Object> call() throws Exception {
+                return RsHelper.success(goodsService.getHomeGoodsTypes());
+            }
+        };
+    }
+
 }

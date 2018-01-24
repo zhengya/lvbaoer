@@ -3,6 +3,7 @@
  */
 package com.lvbaoer.api.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,6 +11,9 @@ import com.lvbaoer.api.domain.User;
 
 @Mapper
 public interface UserMapper {
-	@Select("SELECT * FROM USER WHERE ID=#{id} LIMIT 1")
-	User getById(String id);
+    @Select("SELECT * FROM USER WHERE ID=#{id} LIMIT 1")
+    User getById(String id);
+
+    @Insert("INSERT INTO USER (ID,CREATETIME) VALUES (#{id},#{createTime})")
+    void insert(User user);
 }
