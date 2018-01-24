@@ -23,7 +23,7 @@ public class HealthCenterServiceImpl implements HealthCenterService {
     @Autowired
     private HealthCenterMapper healthCenterMapper;
     @Autowired
-    private HealthCenterInfoMapper HealthCenterInfoMapper;
+    private HealthCenterInfoMapper healthCenterInfoMapper;
 
     @Override
     public List<HealthCenter> getByAddr(String province, String city, int id) {
@@ -33,8 +33,9 @@ public class HealthCenterServiceImpl implements HealthCenterService {
         return healthCenterMapper.getByAddrAndServe(province, city, "^" + id + "$");
     }
 
+    @Override
     public Map<String, List<CenterInfoResult>> getInfos(int centerId) {
-        final List<HealthCenterInfo> infos = HealthCenterInfoMapper.getByCenterId(centerId);
+        final List<HealthCenterInfo> infos = healthCenterInfoMapper.getByCenterId(centerId);
         if (infos == null || infos.size() == 0) {
             return null;
         }
@@ -56,6 +57,11 @@ public class HealthCenterServiceImpl implements HealthCenterService {
         map.put("icon", icon);
         map.put("other", other);
         return map;
+    }
+
+    @Override
+    public HealthCenterInfo getInfoById(int id) {
+        return healthCenterInfoMapper.getById(id);
     }
 
 }

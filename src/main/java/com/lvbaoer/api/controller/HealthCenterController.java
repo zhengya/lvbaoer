@@ -46,4 +46,15 @@ public class HealthCenterController {
         };
     }
 
+    @GetMapping("/title/{id}")
+    public Callable<NetworkResult<Object>> getCenterTitle(@PathVariable final int id, final HttpServletRequest request,
+        final HttpServletResponse response) {
+        return new Callable<NetworkResult<Object>>() {
+            @Override
+            public NetworkResult<Object> call() throws Exception {
+                return RsHelper.success(healthCenterService.getInfoById(id));
+            }
+        };
+    }
+
 }
