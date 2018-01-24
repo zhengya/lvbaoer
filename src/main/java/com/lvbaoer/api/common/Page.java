@@ -15,7 +15,7 @@ import java.util.List;
 public class Page<E> implements Serializable {
 	private static final long serialVersionUID = -6328576888173456966L;
 
-	public static final Integer PAGESIZE = 1;
+	public static final Integer PAGESIZE = 5;
 
 	private int pageSize = PAGESIZE;
 	private int pageNo = 1;

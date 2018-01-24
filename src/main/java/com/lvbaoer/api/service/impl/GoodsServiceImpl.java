@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.lvbaoer.api.bean.GoodsResult;
 import com.lvbaoer.api.bean.HealthMarketResult;
 import com.lvbaoer.api.bean.HealthMarketResult.GoodsTypeTemp;
+import com.lvbaoer.api.common.Page;
 import com.lvbaoer.api.domain.Goods;
 import com.lvbaoer.api.domain.GoodsType;
 import com.lvbaoer.api.domain.ShopCart;
@@ -69,7 +70,7 @@ public class GoodsServiceImpl implements GoodsService {
                 temp.child = childTypes;
                 result.types.add(temp);
             } else {
-                final List<Goods> goods = goodsMapper.getByTypeId(goodsType.getId());
+                final List<Goods> goods = goodsMapper.getByTypeId(0, 4, goodsType.getId());
                 if (goods != null && goods.size() > 0) {
                     final GoodsTypeTemp<Goods> temp = new GoodsTypeTemp<>();
                     temp.type = goodsType;
@@ -79,6 +80,12 @@ public class GoodsServiceImpl implements GoodsService {
             }
         }
         return result;
+    }
+
+    public Page<Goods> getGoodsByTypeId(Page<Goods> page, int typeId) {
+        final List<Goods> goods = goodsMapper.getByTypeId(page.getIndex(), page.getPageSize(), typeId);
+        page.setItems(goods);
+        return page;
     }
 
 }

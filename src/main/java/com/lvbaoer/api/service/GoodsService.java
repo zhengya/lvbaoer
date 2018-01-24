@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.lvbaoer.api.bean.GoodsResult;
 import com.lvbaoer.api.bean.HealthMarketResult;
+import com.lvbaoer.api.common.Page;
+import com.lvbaoer.api.domain.Goods;
 import com.lvbaoer.api.domain.GoodsType;
 import com.lvbaoer.api.domain.ShopCart;
 
@@ -20,4 +22,6 @@ public interface GoodsService {
     List<GoodsType> getHomeGoodsTypes();
 
     HealthMarketResult getGoodsTypes();
+
+    Page<Goods> getGoodsByTypeId(Page<Goods> page, int typeId);
 }
